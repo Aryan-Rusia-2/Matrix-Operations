@@ -1,0 +1,48 @@
+Options
+
+Here are some options and configuration tips for more advanced users.
+
+----------------------------------------------------------------------------
+                              OPTIONS MENU
+----------------------------------------------------------------------------
+
+Under the Options menu, there are two configurations you can toggle:
+
+1. "Toggle high print volume?": Changes the number of print statements in 
+   the terminal. Setting this to True will make the output more difficult to 
+   interpret, but may provide you with slightly more information as it will 
+   print test case file locations and Quick Difference output directly to the 
+   terminal. This option is False by default.
+
+2. "Stop at first failed test?": Setting this to True causes the Test Center 
+   to stop immediately if it encounters a failed test case. This option can be 
+   VERY USEFUL if there are many test cases and you want to access Quick Difference 
+   or Diffmerge output more quickly. This option is True by default, but can be 
+   disabled to run all test cases.
+
+----------------------------------------------------------------------------
+                            CONFIGURATION FILE
+----------------------------------------------------------------------------
+
+If you are opening the Test Center application multiple times, it can be an 
+annoyance to have to reconfigure your settings every time. To change the 
+default settings, open the configuration file "testcenter.ini". This file 
+can be found in the main morning problem directory. 
+
+If you wish to change the default settings of the options above, add the 
+following lines to the configuration file:
+
+"verbose = True"        to turn on high volume print statements by default
+"stop_early = False"    to unconditionally run all test cases by default
+
+----------------------------------------------------------------------------
+                                FILE MENU
+----------------------------------------------------------------------------
+
+The file menu can be used to set up the directory where your script is located 
+("Script directory") or the location of the test cases ("Testcase directory"). 
+This is not something you need to worry about as a student, because the 
+configuration file automatically sets up these locations for you.
+
+----------------------------------------------------------------------------
+

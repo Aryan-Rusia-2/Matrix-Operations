@@ -1,0 +1,49 @@
+Name:  Aryan Rusia
+-------------------------------------------
+
+Included Files : 
+  1) matrix.cpp
+  2) README
+  3) matrix.h
+  4) Makefile
+  5) matrix_class.sh
+  6) we5_test.cpp
+
+Running Instructions :
+
+  1) Open the soln directory in the terminal, type 'make' and enter. This will compile the problem code and will generate the executable file.
+
+  2) Type 'cd ..' to exit the soln directory.
+
+  3) Now, use the Makefile commands to run the solution. 
+
+Notes and Assumptions :
+ 
+  1) All the operations are declared/defined in the 'matrix.h' header file. 
+
+  2) Those operations are implemented in the matrix.cpp file. 
+
+  3) The operations defined in the Matrix Class are -
+    
+    i) Matrix Addition 
+   ii) Matrix Subtraction
+  iii) Matrix Multiplication
+   iv) Negation
+    v) Matrix Transposition
+   vi) Bracket Operator
+  vii) ostream Insertion Operator
+ viii) istream Extraction OPerator
+
+  4) I have created a makefile inside the soln directory to compile the .cpp and .h files and generate a executable file.
+
+  5) Overall time complexity of the solution is very high, because in matrix multiplication, I have used 3 nested while loops, which makes the time complexity (O(n^3)) very high. But it's not a requirement, so it's fine.
+
+  6) I haven't used any STL containers for internal representation of the matrix.
+
+  7) In matrix class, there are two parametrized constructors and one copy constructor.
+
+  8) The two parametrized constructors follows the guideline as given in the description. 
+
+  9) I have also used the destructor to delete the dynamically allocated memory, taken by the 2d array.
+
+   

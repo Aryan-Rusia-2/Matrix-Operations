@@ -1,0 +1,50 @@
+How To Run
+----------------------------------------------------------------------------
+                            RUNNING INSTRUCTIONS
+----------------------------------------------------------------------------
+
+1. Click Run -> Run all in the tool bar at the top of the application (or use
+the keyboard shortcut CTRL+R or COMMAND+R) to run all tests.
+
+2. Watch the terminal window. As the tests run, you will be able to see if 
+they have passed or failed. Each test will print in the following format:
+
+                    Running XXX... RESULT
+
+where XXX is the test number and RESULT is one of:
+    - Pass: Your output matched the expected result exactly.
+    - Fail: Your output is wrong and did not match the expected result.
+    - Presentation Error: Your output matches, but you have a whitespace error 
+    (wrong number of spaces, tabs, or newlines)
+    - Timeout Error: Your program took too long to run and exceeded the timeout
+    per test case. You can find this timeout on the bottom row of the test center 
+    application.
+    - Runtime Error: Your code has an error in it that prevents it from running.
+
+----------------------------------------------------------------------------
+
+WHEN A FAILED TEST IS FOUND: 
+By default, when the first failed test case is found, the test center will 
+stop running any further tests. If there is an error, the error message will be 
+printed to the terminal. 
+
+WHEN THE TEST CENTER IS FINISHED:
+You will see the following message printed, no matter how many tests are run
+or passed:
+                    "Finished running tests."
+
+You will now be able to view your results in the Test Center application. 
+Right-click on any failed test case to view the error in more detail. See 
+"Debugging With the Test Center" for more information on interpreting your 
+results.
+
+----------------------------------------------------------------------------
+
+IF ALL TESTS PASS:
+When all the tests have finished you will see this additional message in the
+terminal:
+                       "All tests passed."
+
+----------------------------------------------------------------------------
+
+

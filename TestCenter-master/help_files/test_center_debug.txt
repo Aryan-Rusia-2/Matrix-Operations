@@ -1,0 +1,100 @@
+Debugging With the Test Center
+----------------------------------------------------------------------------
+                                 QUICK HELP
+----------------------------------------------------------------------------
+
+WHAT DO MY RESULTS MEAN?
+
+There are 5 possible results for a given test case:
+1. Pass: Your output matched the expected result exactly. This is the best 
+         outcome. If all of your test cases look like this, you are done!
+2. Fail: Your output is wrong and did not match the expected result.
+2. Presentation Error: Your output only matches the expected output 
+         if all spaces are removed. You have a whitespace error (wrong 
+         number of spaces, tabs, or newlines).
+3. Timeout Error: Your program took too long to run and exceeded the 
+         time limit per test case. 
+         NOTE: You can find this timeout on the bottom row of the test 
+         center application.
+4. Runtime Error: Your code has a compilation error that prevents it from running.
+
+HELP! I HAVE AN ERROR! WHAT DO I DO?
+
+Use the debugging tools below to find the issue or see the "Debugging Tips" 
+page for more advice.
+
+HOW DO I SEE THE INPUT FILE?
+
+1. Right click on the failed test case.
+2. Click View Files -> Input.
+
+----------------------------------------------------------------------------
+                              DEBUGGING TOOLS
+----------------------------------------------------------------------------
+
+There are several tools built into the test center which are designed to help
+you compare your output to the expected output when you fail a test case. 
+
+----------------------------------------------------------------------------
+
+ERROR MESSAGE (for Runtime Error and Timeout Error):
+
+1. Right-click on a test case that had a result of Runtime Error or Timeout Error.
+2. Click "Error message".
+
+You will see a popup window (designed to look somewhat like a terminal) that 
+will display the error message. You can drag the box to resize it if desired.
+
+----------------------------------------------------------------------------
+
+QUICK DIFFERENCE (for Fail and Presentation Error):
+
+Used to compare the differences between your output and the expected output.
+
+1. Right-click on a test case that has a result of Fail or Presentation Error.
+2. Click "Quick difference".
+3. A popup window will open. Read the instructions and symbol legend to 
+   interpret the output.
+
+Note that Quick Difference can be somewhat difficult to interpret, but it is 
+the most reliable of all the comparison tools because it is built-in to the
+Test Center application.
+
+----------------------------------------------------------------------------
+
+VIEW FILES (for Fail and Presentation Error):
+
+Allows you to view the raw input, output, and expected files directly by 
+opening them in your default text editor.
+
+1. Right-click on a test case that has a result of Fail or Presentation Error.
+2. Click View Files -> Input to view the Input file.
+3. Click View Files -> Your Output to view the file that your code generated.
+4. Click View Files -> Expected to view the Expected output for that test.
+5. Click View Files -> Open All to open all three files at once.
+
+----------------------------------------------------------------------------
+
+DIFFMERGE (for Fail and Presentation Error):
+
+Diffmerge is an external tool allowing you to easily visualize the differences 
+between two files.
+
+1. Right-click on a test case that has a result of Fail or Presentation Error.
+2. Click "Diffmerge" -> XXX-stdout.txt (where XXX is the test case number).
+3. The Diffmerge tool should open successfully. On the top you will see the 
+   Expected output, while on the bottom is your output (your output file is 
+   copied into the Outputs subdirectory when a test is run). Any differences 
+   are shown in red.
+4. You can view the files side-by-side by clicking the "Split Window Vertically"
+   button (the symbol with two vertical bars). 
+
+For more information, see the User's Manual here:
+http://download.sourcegear.com/DiffMerge/3.3.2/DiffMergeManual.pdf
+
+Diffmerge is not part of TCA but is a separate program that you can download 
+for free. It is available on all the major platforms. You can install it from 
+here (links last updated May 22, 2018):
+https://sourcegear.com/diffmerge/webhelp/chapter_installation.html 
+
+----------------------------------------------------------------------------

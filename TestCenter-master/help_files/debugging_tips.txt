@@ -1,0 +1,28 @@
+Debugging Tips
+----------------------------------------------------------------------------
+                         GENERAL DEBUGGING ADVICE
+----------------------------------------------------------------------------
+
+HELP! I HAVE AN ERROR IN MY CODE! 
+
+Don't stress! This page is designed to give you some general advice about how
+to handle common types of errors, whether you are coding in c++, Python, or
+any other language.
+
+----------------------------------------------------------------------------
+
+Presentation Error
+
+If you see this result, you have a whitespace error. Often, this means:
+
+    1. You are printing an extra newline at the end of your output.
+    2. You have extra or missing spaces in between items on a line.
+
+To debug this, first look at the Quick Difference output to see where
+you have extra or missing space. Next, check all of your output statements. 
+If you have a print statement inside of a loop, you may be printing 
+whitespace characters too many or too few times! Try tracing the execution
+of a test case to see what happens.
+
+----------------------------------------------------------------------------
+

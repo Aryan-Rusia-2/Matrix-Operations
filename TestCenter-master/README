@@ -1,0 +1,157 @@
+TEST CENTER APPLICATION
+
+Welcome to the test center, developed in 2013 for the CMPUT 274/275 morning problem assignments at the University of Alberta. Since then, it has been updated several times, including a large update in May, 2018. This README will introduce you to the file structure, class structure, configuration file, help menu configuration, and recent updates.
+
+Note: The original @todo comments have been left throughout the code in case future updates or 
+      configurations are to be made.
+
+----------------------------------------------------------------------------------------------
+
+FILE STRUCTURE:
+
+help_files:             Contains files (listed below) for configuring the help menu window.
+    - home.txt
+    - running_instructions.txt
+    - options.txt
+    - test_center_debug.txt
+    - debugging_tips.txt
+
+- testcenter_gui.pyw    The main file for running the test center.
+- TestCase.py           Classes TestCase() and MatchResult() manage individual test cases
+- TestSuite.py          Contains the test suite (which stores all tests)
+- SimpleDialog.py       Contains classes for display of text, error, and help messages.
+- diffs.py              Used for comparing student and expected output files.
+- myplatform.py         Determines if the host OS is Mac, Windows, or Linux.
+- testcenter.py         Seems to be meant for argument parsing, but is never used or called.
+
+
+----------------------------------------------------------------------------------------------
+
+CLASS STRUCTURE:
+
+The main widget is an instance of Application() and can found in testcenter_gui.pyw.
+    
+    - It contains an instance of TestSuite() from TestSuite.py which is used to keep track of all test cases. Each test case is an instance of the TestCase() class in TestCase.py. 
+        
+        - The result details (errors, quick difference output, etc) of each test case is tracked by MatchResult(), where for each test case, self.resultdetails = MatchResult(). MatchResult() can also be found in TestCase.py
+
+
+For display of messages, there are several classes in SimpleDialog.py.
+    - The base class, Dialog, is never called.
+    - TextDialog() is used primarily to print quick difference output.
+    - ErrorDialog() is configured particularly for error messages and was designed to mimic a dark terminal.
+    - HelpMenu() is used to open and manage the Help widget, and has several buttons that manage the different help pages.
+
+----------------------------------------------------------------------------------------------
+
+CONFIGURATION FILE: "testcenter.ini"
+
+The test center can be configured using the "testcenter.ini" file in several ways. This file must be placed in the main morning problem directory (along with the solution/testcase folders). The first line must be "[DEFAULT]" and then any number of subsequent lines may be added for configuration purposes. A list of possible configurations:
+
+1. "timeout = X" (where X is a floating point number)
+        Set the timeout by adding the line . The timeout per test case will be set to X.
+
+2. "verbose = True" or "verbose = False"
+        Turns high volume printing to terminal on or off. This toggles the same thing as the high volume print statements option in the test center.
+
+3. "stop_early = True" or "stop_early = False"
+        Toggles whether or not to stop immediately after the first failed test case, if one is found. This option is the same as the "Stop at first failed test?" option in the options menu.
+
+4. "script_source_type = X" 
+        Set the script_source_type. X can be anything that is not None.
+
+5. "script_source = X" 
+        Set the directory containing the solution script. Usually X is "soln".
+
+6. "testcase_source = X"
+        Set up the testcase directory. Usually this is set to "test-cases"
+
+These are qll parsed in Application.read_config() and can be modified there.
+----------------------------------------------------------------------------------------------
+
+HELP MENU CONFIGURATION:
+
+The names and text of each window are read in from files in the "help_files" folder. These files can be easily modified to change the exact text of the help menu.
+
+These files must be named 
+    - home.txt
+    - running_instructions.txt
+    - options.txt
+    - test_center_debug.txt
+    - debugging_tips.txt
+
+The first line of each file should contain only the text of the button name. The remainder of the file will be displayed as the body text when the button is pressed. These parameters can be changed in the HelpMenu() class in SimpleDialog.py.
+
+----------------------------------------------------------------------------------------------
+
+USEFUL THINGS TO KNOW / TIPS:
+
+- You can press enter or escape to close dialog boxes.
+- There is a list of files allowed to be in the test directory:
+    allowed_files = ("marking.py", "pep8.py", "marking.ini", "marking_gui.pyw"
+        , "diffs.py", "TestCase.py", "TestSuite.py", "myplatform.py"
+        , "SimpleDialog.py"
+        )
+    (the above code is in TestSuite.py)
+- NOTE: YOU CAN SET A "FUZZ LEVEL" which will allow a test case to pass if it has fewer than X errors (where X is the fuzz level). This is set to 0 by default.
+        - The functions that take a fuzz level are get_hardtest_diffs() and get_softtest_diffs()
+        in diffs.py.
+        - They are called from diff() in the same file and fuzz level is never used (only ever defaults to 0 but is never set).
+
+----------------------------------------------------------------------------------------------
+
+RECENT UPDATES (MAY 2018):
+
+1. Added a prototype of a help menu that can be found on the status bar at the top of the application. It is mapped to CTRL+H (COMMAND+H on a mac)
+
+2. Changed "Hard Test Fail" --> "Presentation Error"
+
+3. Changed "Soft Test (Serious) Fail" --> "Fail"
+
+4. Added the View Files option to the menu when right clicking on a failed test case.
+
+5. Figured out Diffmerge and got it to work on my machine.
+
+6. Removed two extraneous options from the right click menu (on a failed test case, "Extra files" and "Missing files") because they were undocumented and had no clear purpose I could find.
+
+7. Changed the title of the application from "Assignment Test Center" to "Morning Problem Test Center" to reflect its actual purpose in 274/275. 
+
+8. Improved display of error messages using resizable window that is better than the standard showerror box.
+
+9. Improved quick difference by adding instructions on how to use that display when the tool is opened.
+
+10. Implemented easily customizable timeout in config file. You can now add the line "timeout = X" (where X is a floating point number) to the testcenter.ini file and the timeout per test case will be modified accordingly.
+
+11. Added the ability to turn excessive print statements on or off by adding "verbose = False" or "verbose = True" to the testcenter.ini file. Also implemented the same thing for stop_early.
+
+12. Created options menu. Ability to toggle verbosity (turn high volume print statements off in terminal) is now an option in options menu.
+
+13. Test center now has option to stop at first failed test case, allowing for a quick exit as soon as the first test case is failed. This is also in the options menu.
+
+14. Errors are now differentiated: they are now either "Runtime Error" or "Timeout Error" on the gui. "Time limit exceeded" is now printed to the terminal.
+
+15. Timeout now displays at the bottom of the gui as "Timeout: X seconds per testcase" where X is the timeout. I also clarified other elements of the status bar.
+
+16. New button is added to the help menu for general debugging tips. Also, the help menu now reads its button names and information from files within the help_files folder.
+
+17. Added printing of error message to the terminal when a runtime error or timeout error occurs. This is done ONLY if stop_early is True (so that the user will not be overwhelmed by error messages if they decide to run all test cases).
+
+18. Stopping at failed test case is now True by default.
+
+19. Fixed an issue with quick difference not correctly tracking newlines.
+
+20. Fixed a minor misprint in test center and added a colour indicator of a failed test case (background in red). Presentation errors are no longer considered fails for the purpose of stopping early.
+
+----------------------------------------------------------------------------------------------
+
+To Do:
+- Check if Diffmerge is installed on VM, ensure that new Test Center works fine on VM
+- check that sample tests from pdf are the first few test cases on test center
+- test that the open files command works on mac and figure out windows?
+- Add to github
+
+Low priority: 
+- Fix right click issue (click on main window should destroy open widget!!)
+- reordering of tests based on Results so failed test cases show up first
+- add ability to re-run a single test on right click
+- add diffmerge, visible_diff, fuzz_level to the config file

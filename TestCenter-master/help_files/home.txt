@@ -1,0 +1,65 @@
+Home
+----------------------------------------------------------------------------
+                    WELCOME TO THE TEST CENTER HELP MENU!
+----------------------------------------------------------------------------
+
+This menu is designed to help you familiarize yourself with some commonly used 
+Test Center features.
+
+----------------------------------------------------------------------------
+                          ABOUT THE TEST CENTER
+----------------------------------------------------------------------------
+
+The Test Center Application is provided for you to test your solution before 
+you submit. It was designed for use in CMPUT 274/275 and is used for morning 
+problem coding exercises.
+
+MORNING PROBLEM INSTRUCTIONS:
+Follow the running instructions to run all test cases. If the result for 
+every test case is Pass, you are done! Upload your solution to eClass.
+Submit only the solution file (.py or .cpp) unzipped.
+
+----------------------------------------------------------------------------
+                            HELP MENU LAYOUT 
+----------------------------------------------------------------------------
+Here is a list of the current help pages (to access, click the associated 
+button above).
+
+How To Run: 
+    Instructions on running test cases and how to read terminal output.
+Options: 
+    Learn about advanced options, the file menu, and the configuration file.
+Debugging With the Test Center: 
+    For help interpreting your results and debugging failed test case 
+    output using Test Center tools.
+Debugging Tips: 
+    For general debugging help and advice.
+
+----------------------------------------------------------------------------
+                   UNDERSTANDING THE TEST CENTER LAYOUT
+----------------------------------------------------------------------------
+
+The Test Center has three main components. At the top, you will see four menu
+choices: File, Run, Options, and Help. You will mostly be concerned with Run 
+(to run all test cases) and Help (to access the help menu).
+
+Below that, you will see the test suite. The tab at the top left shows the name
+of your script (eg, badgram.py or addition.sh). In the center you will see the
+test cases (numbered from 000) on the left and the Result of each test on the 
+right.
+
+The result is initially N/A. It will update when you run the test cases.
+
+At the bottom, you will see several rows, starting with a summary like this:
+
+    Tests: X     Errors: X      Fails: X      Presentation Errors: X
+
+These indicate the number of tests, the number of errors (either Runtime or 
+Timeout), the number of Fail results, and the number of presentation errors.
+
+You will also see the locations of the Testcase folder and Script folder. These
+will usually be "test-cases" and "soln".
+
+In the final row, you can see the Timeout (time limit per test case) in seconds.
+
+
